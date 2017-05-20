@@ -78,7 +78,15 @@ deinit {
 
 ## Install
 
-### Copy the source code in you project
+### 1. Cocoapods
+
+```bash
+pod 'BannerHoverView', '~> 0.0.1'
+```
+
+And you will get the `BannerHoverView.swift` file. 😎
+
+### 2. Copy the source code in you project
 
 You can copy the `BannerHoverView` folder and its source file `BannerHoverView.swift` in your project.
 
