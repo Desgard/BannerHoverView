@@ -12,13 +12,16 @@ So, quick to build hover view by **BannerHoverView** in iOS development.
 
 ## Screenshot
 
+
+<img src="source/demo.gif" alt="img" width="240px">
+
 ## Usage
 
-### Import BannerHoverView
+### 1. Import BannerHoverView
 
 Please refer to **Install**.
 
-### Definition Derived View
+### 2. Definition Derived View
 
 It's like the `SampleView` below:
 
@@ -34,7 +37,7 @@ class SampleView: BannerHoverView {
 }
 ```
 
-### Use In ViewController
+### 3. Use In ViewController
 
 **Property**
 

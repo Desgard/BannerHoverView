@@ -13,30 +13,13 @@ import Toaster
 class SampleView: BannerHoverView {
     var bakView: UIView!
     var titleLabel: UILabel!
+    var bannerImageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         initialViews()
         addSubviews()
         setLayouts()
-        
-        self.addSubview(bakView);
-        
-        self.setScrollAction { (view, offset) in
-            self.bakView.alpha = offset
-        }
-        
-        self.setTopAction { (view) in
-            let toast = Toast(text: "On the Top!", duration: Delay.short)
-            toast.show()
-            
-        }
-        
-        self.setBottomAction { (view) in
-            let toast = Toast(text: "On the Bottom!", duration: Delay.short)
-            toast.show()
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,11 +35,33 @@ class SampleView: BannerHoverView {
         titleLabel = UILabel()
         titleLabel.text = "BannerHoverView Sample"
         titleLabel.textColor = .white
+        
+        bannerImageView = UIImageView()
+        bannerImageView.contentMode = .scaleAspectFit
+        bannerImageView.image = UIImage(named: "banner")
+        
+        self.setScrollAction { (view, offset) in
+            self.bakView.alpha = offset
+            self.titleLabel.alpha = 1 - offset
+            self.bannerImageView.alpha = offset
+        }
+        
+        self.setTopAction { (view) in
+            let toast = Toast(text: "On the Top!", duration: Delay.short)
+            toast.show()
+            
+        }
+        
+        self.setBottomAction { (view) in
+            let toast = Toast(text: "On the Bottom!", duration: Delay.short)
+            toast.show()
+        }
     }
     
     fileprivate func addSubviews() {
         addSubview(bakView)
         addSubview(titleLabel)
+        addSubview(bannerImageView)
     }
     
     fileprivate func setLayouts() {
@@ -71,6 +76,13 @@ class SampleView: BannerHoverView {
         titleLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
             make.bottom.equalTo(self.snp.bottom).offset(-10)
+        }
+        
+        bannerImageView.snp.makeConstraints { (make) in
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+            make.top.equalTo(self.snp.top).offset(20)
+            make.bottom.equalTo(self.snp.bottom)
         }
     }
 }
