@@ -1,0 +1,15 @@
+PODS:
+  - SnapKit (3.2.0)
+  - Toaster (2.0.3)
+
+DEPENDENCIES:
+  - SnapKit
+  - Toaster (~> 2.0)
+
+SPEC CHECKSUMS:
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  Toaster: 77c0b03d78e680bbbab0071c9c7ee392b0034010
+
+PODFILE CHECKSUM: 69670b2813a7bc24a098ce631d85d200ae011928
+
+COCOAPODS: 1.2.0

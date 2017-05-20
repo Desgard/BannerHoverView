@@ -1,0 +1,6 @@
+framework module Pods_BannerHoverView_Sample {
+  umbrella header "Pods-BannerHoverView-Sample-umbrella.h"
+
+  export *
+  module * { export * }
+}
