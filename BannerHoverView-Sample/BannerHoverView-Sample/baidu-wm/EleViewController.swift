@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BaiduWMViewController.swift
 //  BannerHoverView-Sample
 //
 //  Created by 段昊宇 on 2017/5/20.
@@ -8,56 +8,65 @@
 
 import UIKit
 
-let BackButtonColor = UIColor.init(red: 244 / 255.0, green: 67 / 255.0, blue: 54 / 255.0, alpha: 1)
+class EleViewController: UIViewController {
+    
+    var backButton: UIButton = {
+        var button = UIButton.init(type: .custom)
+        button.setTitle("◀", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = BackButtonColor
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 30
+        button.addTarget(self, action: #selector(back), for: .touchUpInside)
+        return button
+    }()
 
-class ViewController: UIViewController {
-    
-    let cellDatas: [[String]] = [
-        ["Ele", "饿了么首页",],
-        
-    ]
-    
     var tableView: UITableView!
-    var bannerHoverView: SampleView!
+    var bannerHoverView: EleHoverView!
     
     deinit {
         tableView.removeObserver(bannerHoverView, forKeyPath: "contentOffset")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialViews()
     }
     
     fileprivate func initialViews() {
-        automaticallyAdjustsScrollViewInsets = false
-        
-        navigationController?.navigationBar.isHidden = true
-        
         tableView = UITableView.init(frame: view.bounds, style: .grouped)
         tableView.estimatedRowHeight = 30
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
         
-        bannerHoverView = SampleView.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.size.width, height: 280))
+        bannerHoverView = EleHoverView.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.size.width, height: 125))
         bannerHoverView.top = 65
         bannerHoverView.headerScrollView = tableView
         
         tableView.addObserver(bannerHoverView, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.new, context: nil)
         
-        tableView.register(UINib.init(nibName: "ShowTableViewCell", bundle: nil), forCellReuseIdentifier: "ShowTableViewCell")
-        
         view.addSubview(tableView)
         view.addSubview(bannerHoverView)
+        view.addSubview(backButton)
+        
+        backButton.snp.makeConstraints { (make) in
+            make.width.height.equalTo(60)
+            make.right.equalTo(self.view.snp.right).offset(-30)
+            make.bottom.equalTo(self.view.snp.bottom).offset(-50)
+        }
+    }
+    
+    func back() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
-// MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension EleViewController: UITableViewDelegate {
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellDatas.count
+        return 20
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -65,23 +74,17 @@ extension ViewController: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5
+        return 0.1
     }
 }
 
-// MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension EleViewController: UITableViewDataSource {
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ShowTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ShowTableViewCell", for: indexPath) as! ShowTableViewCell
-        cell.configureCell(text: cellDatas[indexPath.row][1], image: cellDatas[indexPath.row][0])
+        let cell = UITableViewCell()
         return cell
     }
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 0 {
-            self.navigationController?.pushViewController(EleViewController(), animated: true)
-        }
     }
 }
-

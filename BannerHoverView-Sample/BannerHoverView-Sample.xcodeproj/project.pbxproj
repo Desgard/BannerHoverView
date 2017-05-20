@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		06672DAA6D971DCFD4C666D0 /* Pods_BannerHoverView_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 920A0624DF931A050E32CC1C /* Pods_BannerHoverView_Sample.framework */; };
+		D545744C1ED06DCB00497A10 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545744A1ED06DCB00497A10 /* ShowTableViewCell.swift */; };
+		D545744D1ED06DCB00497A10 /* ShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D545744B1ED06DCB00497A10 /* ShowTableViewCell.xib */; };
+		D54574501ED073BA00497A10 /* EleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545744F1ED073BA00497A10 /* EleViewController.swift */; };
+		D54574521ED0741400497A10 /* EleHoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54574511ED0741400497A10 /* EleHoverView.swift */; };
 		D5713C001ECFBAB70034A9DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5713BFF1ECFBAB70034A9DB /* AppDelegate.swift */; };
 		D5713C021ECFBAB70034A9DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5713C011ECFBAB70034A9DB /* ViewController.swift */; };
 		D5713C051ECFBAB70034A9DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5713C031ECFBAB70034A9DB /* Main.storyboard */; };
@@ -19,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		920A0624DF931A050E32CC1C /* Pods_BannerHoverView_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BannerHoverView_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D545744A1ED06DCB00497A10 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowTableViewCell.swift; path = cell/ShowTableViewCell.swift; sourceTree = "<group>"; };
+		D545744B1ED06DCB00497A10 /* ShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShowTableViewCell.xib; path = cell/ShowTableViewCell.xib; sourceTree = "<group>"; };
+		D545744F1ED073BA00497A10 /* EleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EleViewController.swift; path = "baidu-wm/EleViewController.swift"; sourceTree = "<group>"; };
+		D54574511ED0741400497A10 /* EleHoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EleHoverView.swift; path = "baidu-wm/EleHoverView.swift"; sourceTree = "<group>"; };
 		D5713BFC1ECFBAB70034A9DB /* BannerHoverView-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BannerHoverView-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5713BFF1ECFBAB70034A9DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5713C011ECFBAB70034A9DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +69,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D54574491ED06DA800497A10 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				D545744A1ED06DCB00497A10 /* ShowTableViewCell.swift */,
+				D545744B1ED06DCB00497A10 /* ShowTableViewCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		D545744E1ED0738400497A10 /* ele-demo */ = {
+			isa = PBXGroup;
+			children = (
+				D545744F1ED073BA00497A10 /* EleViewController.swift */,
+				D54574511ED0741400497A10 /* EleHoverView.swift */,
+			);
+			name = "ele-demo";
+			sourceTree = "<group>";
+		};
 		D5713BF31ECFBAB70034A9DB = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +108,9 @@
 		D5713BFE1ECFBAB70034A9DB /* BannerHoverView-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				D54574491ED06DA800497A10 /* cell */,
 				D5713C111ECFBABE0034A9DB /* BannerHoverView */,
+				D545744E1ED0738400497A10 /* ele-demo */,
 				D5713BFF1ECFBAB70034A9DB /* AppDelegate.swift */,
 				D5713C011ECFBAB70034A9DB /* ViewController.swift */,
 				D5713C141ECFD1000034A9DB /* SampleView.swift */,
@@ -166,6 +194,7 @@
 			files = (
 				D5713C0A1ECFBAB70034A9DB /* LaunchScreen.storyboard in Resources */,
 				D5713C071ECFBAB70034A9DB /* Assets.xcassets in Resources */,
+				D545744D1ED06DCB00497A10 /* ShowTableViewCell.xib in Resources */,
 				D5713C051ECFBAB70034A9DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,8 +256,11 @@
 			files = (
 				D5713C151ECFD1000034A9DB /* SampleView.swift in Sources */,
 				D5713C021ECFBAB70034A9DB /* ViewController.swift in Sources */,
+				D54574501ED073BA00497A10 /* EleViewController.swift in Sources */,
 				D5713C131ECFBB0E0034A9DB /* BannerHoverView.swift in Sources */,
+				D545744C1ED06DCB00497A10 /* ShowTableViewCell.swift in Sources */,
 				D5713C001ECFBAB70034A9DB /* AppDelegate.swift in Sources */,
+				D54574521ED0741400497A10 /* EleHoverView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +424,7 @@
 				D5713C101ECFBAB70034A9DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

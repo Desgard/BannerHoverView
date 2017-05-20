@@ -27,10 +27,10 @@ class SampleView: BannerHoverView {
     }
     
     fileprivate func initialViews() {
-        self.backgroundColor = UIColor.gray
+        self.backgroundColor = UIColor.init(red: 139 / 255.0, green: 195 / 255.0, blue: 74 / 255.0, alpha: 1)
         
         bakView = UIView.init()
-        bakView.backgroundColor = .lightGray
+        bakView.backgroundColor = UIColor.init(red: 76 / 255.0, green: 175 / 255.0, blue: 80 / 255.0, alpha: 1)
         
         titleLabel = UILabel()
         titleLabel.text = "BannerHoverView Sample"
@@ -65,7 +65,6 @@ class SampleView: BannerHoverView {
     }
     
     fileprivate func setLayouts() {
-        
         bakView.snp.makeConstraints { (make) in
             make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
@@ -79,8 +78,8 @@ class SampleView: BannerHoverView {
         }
         
         bannerImageView.snp.makeConstraints { (make) in
-            make.left.equalTo(self.snp.left)
-            make.right.equalTo(self.snp.right)
+            make.left.equalTo(self.snp.left).offset(30)
+            make.right.equalTo(self.snp.right).offset(-30)
             make.top.equalTo(self.snp.top).offset(20)
             make.bottom.equalTo(self.snp.bottom)
         }
