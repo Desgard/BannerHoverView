@@ -3,6 +3,9 @@
 
 ![](https://img.shields.io/badge/Swift-3.0-green.svg)
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
+[![](https://img.shields.io/badge/pod-0.0.1.svg)](https://cocoapods.org/pods/BannerHoverView)
+![](https://img.shields.io/github/stars/Desgard/BannerHoverView.svg)
+
 
 ## Description
 
