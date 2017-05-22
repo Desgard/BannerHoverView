@@ -36,6 +36,18 @@ class SampleView: BannerHoverView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    self.setScrollAction { (view, offset) in
+        // offset - distance percent
+    }
+
+    self.setTopAction { (view) in
+        // scroll top callback
+    }
+
+    self.setBottomAction { (view) in
+        // scroll bottom callback
+    }
 }
 ```
 
