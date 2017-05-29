@@ -35,6 +35,7 @@ class BannerHoverView: UIView {
     // MARK: - UIView Delegate
     public override func willMove(toWindow newWindow: UIWindow?) {
         headerScrollView.contentInset = UIEdgeInsets.init(top: bottom, left: 0, bottom: 0, right: 0)
+        headerScrollView.scrollIndicatorInsets = UIEdgeInsets.init(top: bottom, left: 0, bottom: 0, right: 0)
     }
     
     // MARK: - KVO
