@@ -42,7 +42,7 @@ class EleViewController: UIViewController {
         tableView.delegate = self
         
         bannerHoverView = EleHoverView.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.size.width, height: 125))
-        bannerHoverView.top = 65
+        bannerHoverView.hoverTop = 65
         bannerHoverView.headerScrollView = tableView
         
         tableView.addObserver(bannerHoverView, forKeyPath: "contentOffset", options: NSKeyValueObservingOptions.new, context: nil)

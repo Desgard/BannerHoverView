@@ -13,8 +13,8 @@ class BannerHoverView: UIView {
     static private let eps: CGFloat = 1e-6
     
     public var headerScrollView: UIScrollView!
-    public var top: CGFloat = 0
-    public fileprivate(set) var bottom: CGFloat = 0
+    public var hoverTop: CGFloat = 0
+    public fileprivate(set) var hoverBottom: CGFloat = 0
     public fileprivate(set) var isTop: Bool = false
     public fileprivate(set) var isBottom: Bool = true
     fileprivate var completeBlock: ((BannerHoverView) -> Void)?
@@ -23,7 +23,7 @@ class BannerHoverView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        bottom = frame.size.height
+        hoverBottom = frame.size.height
         isTop = false
         isBottom = true
     }
@@ -34,7 +34,7 @@ class BannerHoverView: UIView {
     
     // MARK: - UIView Delegate
     public override func willMove(toWindow newWindow: UIWindow?) {
-        headerScrollView.contentInset = UIEdgeInsets.init(top: bottom, left: 0, bottom: 0, right: 0)
+        headerScrollView.contentInset = UIEdgeInsets.init(top: hoverBottom, left: 0, bottom: 0, right: 0)
     }
     
     // MARK: - KVO
@@ -61,10 +61,10 @@ class BannerHoverView: UIView {
     fileprivate func updateSubViewsWithScrollOffset(newOffset: CGPoint) {
         var newOffset = newOffset
         let startChangeOffset = -headerScrollView.contentInset.top
-        newOffset = CGPoint.init(x: newOffset.x, y: newOffset.y < startChangeOffset ? startChangeOffset : min(newOffset.y, -top))
-        let newY = -newOffset.y - bottom
+        newOffset = CGPoint.init(x: newOffset.x, y: newOffset.y < startChangeOffset ? startChangeOffset : min(newOffset.y, -hoverTop))
+        let newY = -newOffset.y - hoverBottom
         frame = CGRect.init(x: 0, y: newY, width: frame.size.width, height: frame.size.height)
-        let distance = -top - startChangeOffset
+        let distance = -hoverTop - startChangeOffset
         let percent = 1 - (newOffset.y - startChangeOffset) / distance
         
         // Solve Call Back
@@ -91,3 +91,6 @@ class BannerHoverView: UIView {
         }
     }
 }
+
+
+
